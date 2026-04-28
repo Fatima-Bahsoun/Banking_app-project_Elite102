@@ -14,11 +14,10 @@ def main_menu():
     #display text on the main screen
     text_display = tk.Label(root, text="Welcome. This is YOUR money.", font=("Times New Roman", 22))# here: find a way to display at the bottom
     text_display.pack()
-    #button to withdraw
-    withdraw_button = tk.Button(root, text="Withdraw", font=("Times New Roman", 18))#, width=259, height=96)#here: button not really correct sieze because its not by pixels
-    #here: 
-    withdraw_button.pack(pady=10, padx=15)#PLACEHOLDER!! NOT IT
-    #frame is better??
+#declearing & calling the buttons from the 
+
+
+
     
 #calling the main menu
 main_menu()
