@@ -1,5 +1,6 @@
 #here is where work in to be continued
 import tkinter as tk
+from buttons import my_buttons as mb
 from tkinter import messagebox
 from main import create_accout, get_account, deposit, withdraw
 #this is the main window
@@ -14,11 +15,9 @@ def main_menu():
     #display text on the main screen
     text_display = tk.Label(root, text="Welcome. This is YOUR money.", font=("Times New Roman", 22))# here: find a way to display at the bottom
     text_display.pack()
-#declearing & calling the buttons from the 
-
-
-
-    
+    #declearing & calling the buttons from the 
+    mb(root)
+        
 #calling the main menu
 main_menu()
 #this is what runs the main window
