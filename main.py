@@ -63,7 +63,7 @@ def withdraw(id_, amount): #affects balance
 def balance(id_,): #returns a value: no change in the table
     cursor = db.cursor()
     sql = "SELECT balance FROM accounts WHERE id = %s"
-    values= (id_)
+    values= (id_,)
     cursor.execute(sql,values)
     result = cursor.fetchone()
     return result[0] if result else None
