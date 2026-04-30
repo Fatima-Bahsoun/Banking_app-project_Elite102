@@ -1,13 +1,12 @@
 #here is where work in to be continued
 import mysql.connector
 
-
 db = mysql.connector.connect(
     host="127.0.0.1",
     port=3306,
     user="root",
     password="ALGAWTHadrekna@1",
-    database="testdb")
+    database="testdb") #change the database name AND delete the currents
 cursor = db.cursor()
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS accounts (
@@ -32,7 +31,7 @@ def create_accout(name, inti_depo):
     db.commit()
     print("Account created.\nSUCCEEDED")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-def get_account(id_):
+def get_account(id_):#returns an account: no change in the table
     cursor = db.cursor()
     sql = "SELECT id, name, balance FROM accounts WHERE id = %s"
     values = (id_,)
@@ -41,7 +40,7 @@ def get_account(id_):
     #cursor.execute("SELECT id, name, balance FROM accounts WHERE id = %s",(id_,))
     return cursor.fetchone()
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-def deposit(id_, amount):
+def deposit(id_, amount): #affects balance
     cursor = db.cursor()
     sql = "UPDATE accounts SET balance = balance + %s WHERE id = %s"
     values= (amount, id_)
@@ -51,7 +50,7 @@ def deposit(id_, amount):
     db.commit()
     print("Deposit completed.\nSUCCEEDED")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-def withdraw(id_, amount):
+def withdraw(id_, amount): #affects balance
     cursor = db.cursor()
     sql = "UPDATE accounts SET balance = balance - %s WHERE id = %s"
     values= (amount, id_)
@@ -60,6 +59,15 @@ def withdraw(id_, amount):
     #cursor.execute("UPDATE accounts SET balance = balance - %s WHERE id = %s",(amount, id_))
     db.commit()
     print("Withdrew your money...\nHave some fun, you deserve it!")
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+def balance(id_,): #returns a value: no change in the table
+    cursor = db.cursor()
+    sql = "SELECT balance FROM accounts WHERE id = %s"
+    values= (id_,)
+    cursor.execute(sql,values)
+    result = cursor.fetchone()
+    return result[0] if result else None
+
 
 #db.close()
 create_accout("Jacob", 100)
