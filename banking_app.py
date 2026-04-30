@@ -13,10 +13,18 @@ def main_menu():
     for widget in root.winfo_children():
         widget.destroy()
     #display text on the main screen
+<<<<<<< HEAD
     text_display = tk.Label(root, text="Welcome. This is your safe money place.", font=("Times New Roman", 22))# here
     text_display.pack(pady=20)
     #declearing & calling the buttons from the buttons file
     balance_button, account_button, deposite_button, withdraw_button = mb(root)
+=======
+    text_display = tk.Label(root, text="Welcome. This is YOUR money.", font=("Times New Roman", 22))# here: find a way to display at the bottom
+    text_display.pack()
+    #declearing & calling the buttons from the 
+    mb(root)
+        
+>>>>>>> dfc5ff0a80c3f45940725dcecb308bb166c626fe
 #calling the main menu
 main_menu()
 #this is what runs the main window
