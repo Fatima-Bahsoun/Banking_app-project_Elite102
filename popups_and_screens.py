@@ -18,7 +18,10 @@ def withdraw_popup(root):
     tk.Label(popup, text="Amount:").pack()
     amount_entry = tk.Entry(popup)
     amount_entry.pack(pady=5)
-
+    #password (doesn't have any function)
+    tk.Label(popup, text="Password:").pack()
+    pass_entry = tk.Entry(popup)
+    pass_entry.pack(pady=5)
     def confirm_withdraw():
         try:
             withdraw(id_entry.get(), float(amount_entry.get()))
@@ -68,7 +71,9 @@ def balance_popup(root):
     tk.Label(popup, text="Account ID:").pack()
     id_entry = tk.Entry(popup)
     id_entry.pack(pady=5)
-
+    tk.Label(popup, text="Password:").pack()
+    pass_entry = tk.Entry(popup)
+    pass_entry.pack(pady=5)
     def show_balance():
         try:
             acc = get_account(id_entry.get())
@@ -95,9 +100,12 @@ def account_screen(root, main_menu):
     deposit_entry.pack(pady=5)
 
     def create_account_action():
+        name = name_entry.get()
+        amount = deposit_entry.get()
+
         try:
-            create_accout(name_entry.get(), float(deposit_entry.get()))
-            messagebox.showinfo("Success", "Account created.")
+            new_id = create_accout(name, float(amount))   # ⭐ get ID from backend
+            messagebox.showinfo("Success", f"Account created!\nYour User ID is: {new_id}")
             main_menu()
         except Exception as e:
             messagebox.showerror("Error", str(e))

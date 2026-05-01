@@ -19,7 +19,7 @@ def main_menu():
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
     #display text on the main screen--Title
-    text_display = tk.Label(root, text="Welcome.\nThis is your safe money place.", font=("Times New Roman", 22), fg= "white", bg="#cfb5cb")
+    text_display = tk.Label(root, text="Welcome.", font=("Times New Roman", 22), fg= "white", bg="#cfb5cb")
     text_display.pack(pady=20)
     #declearing & calling the buttons from the buttons file
     mb( root, go_withdraw=lambda: withdraw_popup(root), go_deposit=lambda: deposit_popup(root), go_account=lambda: account_screen(root, main_menu), go_balance=lambda: balance_popup(root)
