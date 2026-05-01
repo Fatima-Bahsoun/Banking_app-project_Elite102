@@ -29,7 +29,8 @@ def create_accout(name, inti_depo):
     #above is the same as: 
     #cursor.execute("INSERT INTO accounts (name, balance) VALUES (%s,%s)",(name, inti_depo))
     db.commit()
-    print("Account created.\nSUCCEEDED")
+    new_id = cursor.lastrowid  
+    return new_id
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 def get_account(id_):#returns an account: no change in the table
     cursor = db.cursor()
