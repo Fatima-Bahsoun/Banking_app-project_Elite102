@@ -5,7 +5,7 @@ db = mysql.connector.connect(
     host="127.0.0.1",
     port=3306,
     user="root",
-    password="ALGAWTHadrekna@1",
+    password="Hardest_P@ssw0rd",
     database="testdb") #change the database name AND delete the currents
 cursor = db.cursor()
 cursor.execute("""
